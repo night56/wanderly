@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { 
   MapPin, 
   Globe, 
@@ -10,10 +11,15 @@ import {
   ArrowRight,
   Plane,
   Hotel,
-  Car
+  Car,
+  Star,
+  Users,
+  Zap,
+  Shield
 } from 'lucide-react'
 
 const HomePage = () => {
+  const { t } = useTranslation()
   const features = [
     {
       icon: <Sparkles className="h-8 w-8" />,
@@ -75,17 +81,16 @@ const HomePage = () => {
         className="text-center py-16"
       >
         <h1 className="text-5xl font-bold text-gray-900 mb-6">
-          Nereye Gideceğinizi Bilmiyor musunuz?
+          {t('home.hero.title')}
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          AI destekli seyahat rehberimiz ile mükemmel destinasyonu bulun. 
-          Harita, çeviri, yemek önerileri ve daha fazlası ile seyahatinizi planlayın.
+          {t('home.hero.subtitle')}
         </p>
         <Link 
           to="/guide" 
           className="btn-primary inline-flex items-center space-x-2 text-lg px-8 py-4"
         >
-          <span>Seyahat Rehberini Başlat</span>
+          <span>{t('home.hero.cta')}</span>
           <ArrowRight className="h-5 w-5" />
         </Link>
       </motion.section>
